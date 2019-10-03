@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="test_h">300dp</dimen>
+  <dimen name="test_w">1200dp</dimen>
+
+  <!-- chart -->
+  <dimen name="chart_line_width">3dp</dimen>
+  <dimen name="chart_back_line_width">1dp</dimen>
+  <dimen name="chart_cluster_size">2.4dp</dimen>
+  <dimen name="chart_font_size">10dp</dimen>
+  <dimen name="chart_icon_size">12dp</dimen>
+  <dimen name="chart_shader_y_offset">20dp</dimen>
+
+  <dimen name="chart_small_circle_radius">2dp</dimen>
+  <dimen name="chart_bigger_circle_radius">2dp</dimen>
+
+  <dimen name="relax_now_circle">100dp</dimen>
+
+
+
+  <!-- ext (old) chart -->
+  <dimen name="ext_chart_line_width">1dp</dimen>
+
+  <!-- main and other page header -->
+  <dimen name="HeaderHeight">44dp</dimen>
+  <dimen name="MainTabHeight">46dp</dimen>
+  <!-- should be sum of the above -->
+  <dimen name="MainTotalHeight">90dp</dimen>
+  <!-- in my status, simple main chart -->
+  <dimen name="main_chart_height">100dp</dimen>
+  <dimen name="main_top_panel_width">290dp</dimen>
+  <dimen name="main_top_panel_height">130dp</dimen>
+  <dimen name="main_chart_bottom_margin">135dp</dimen>
+
+  <dimen name="StressStatusHeaderHeight">50dp</dimen>
+
+
+  
+  <!-- in notification -->
+  <dimen name="button_corner_radius_small">5dp</dimen>
+  <dimen name="button_corner_radius">20dp</dimen>
+
+  <dimen name="button_width">240dp</dimen>
+  <dimen name="button_height">40dp</dimen>
+
+  <dimen name="edittext_width">240dp</dimen>
+
+  <dimen name="main_tabs_underline_height">2dp</dimen>
+  <dimen name="main_tabs_underline_margin">14dp</dimen>
+  <dimen name="main_tabs_underline_margin_bottom">4dp</dimen>
+  <dimen name="corner_path_effect_size">10dp</dimen>
+  <dimen name="corner_path_effect_size_simple">20dp</dimen>
+
+  <!-- gauge control -->
+  <dimen name="gauge_width">300dp</dimen>
+  <dimen name="gauge_height">8dp</dimen>
+
+  <dimen name="main_display_values_font_size">26dp</dimen>
+  <dimen name="main_display_labels_font_size">13dp</dimen>
+
+
+  <dimen name="progress_size">36dp</dimen>
+
+  <!-- settings -->
+
+  <dimen name="settings_margin">16dp</dimen>
+  <dimen name="settings_image_margin">35dp</dimen>
+  <dimen name="settings_item_height">68dp</dimen>
+
+
+</resources>

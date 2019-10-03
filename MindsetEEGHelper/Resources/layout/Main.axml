@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+              android:orientation="vertical" 
+              android:layout_width="match_parent" 
+              android:layout_height="match_parent">
+
+
+  <TextView
+            android:id="@+id/label_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Turn on Bluetooth. Turn on MindSet by long pressing on/off. Pair with phon if not already paired (long press play/pause to enter pairing mode). Then wait some seconds."
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffffff"
+            android:textSize="20dp" />
+  
+	<Button android:id="@+id/myButton" 
+		android:layout_width="match_parent" 
+		android:layout_height="wrap_content" 
+		android:text="Start monitor/record" />
+</LinearLayout>
