@@ -5,6 +5,8 @@ using Android.Bluetooth;
 using System;
 using Android.Content;
 using Android.Util;
+using Android;
+using Android.Content.PM;
 
 namespace gnf
 {
@@ -30,7 +32,9 @@ namespace gnf
 
 			CheckBluetooth();
 
-			/*
+            HandleRequestPermission();
+
+            /*
 var nskAlgoSdk = new NskAlgoSdk();
 
 try
@@ -51,9 +55,41 @@ catch (Exception e)
 }
 */
 
-		}
 
-		void ButtonClicked(Object sender, EventArgs e)
+        }
+
+        void HandleRequestPermission() {
+            if(Build.VERSION.SdkInt >= BuildVersionCodes.M) {
+                string[] allPermissionsLocation =
+                {
+                  Manifest.Permission.WriteExternalStorage,
+                  Manifest.Permission.ReadExternalStorage,
+                  Manifest.Permission.Bluetooth,
+                  Manifest.Permission.AccessFineLocation,
+                  Manifest.Permission.AccessCoarseLocation
+                };
+
+                if(this.CheckSelfPermission(allPermissionsLocation[3]) != (int)Permission.Granted) {
+                    RequestPermissions(allPermissionsLocation, RequestLocationId);
+                }
+                else {
+                }
+            }
+            else {
+            }
+        }
+
+
+        const int RequestLocationId = 0;
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults) {
+            if(requestCode == RequestLocationId) {
+               
+            }
+        }
+
+
+        void ButtonClicked(Object sender, EventArgs e)
 		{
 			//Log.d(TAG, "lib version: " + TgStreamReadeResources.getVersion());
 			//var bb = new AlertDialog();

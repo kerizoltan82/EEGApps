@@ -74,13 +74,16 @@ namespace gnf
 			    {
 				    powerSignals.AddSignal(power);
 				    int totalPowerSample = power.GetTotalPower();
-				    percentAlpha.AddSignal( (int) (((power.HighAlpha + power.LowAlpha) * 100) / totalPowerSample));
-				    percentBeta.AddSignal((int)(((power.HighBeta + power.LowBeta) * 100) / totalPowerSample));
-				    percentDelta.AddSignal((int)(((power.Delta) * 100) / totalPowerSample));
-				    percentTheta.AddSignal ((int)(((power.Theta) * 100) / totalPowerSample));
-				    percentGamma.AddSignal ((int)(((power.LowGamma + power.MiddleGamma) * 100) / totalPowerSample));
+                    if(totalPowerSample > 0) {
+                        percentAlpha.AddSignal((int)(((power.HighAlpha + power.LowAlpha) * 100) / totalPowerSample));
+                        percentBeta.AddSignal((int)(((power.HighBeta + power.LowBeta) * 100) / totalPowerSample));
+                        percentDelta.AddSignal((int)(((power.Delta) * 100) / totalPowerSample));
+                        percentTheta.AddSignal((int)(((power.Theta) * 100) / totalPowerSample));
+                        percentGamma.AddSignal((int)(((power.LowGamma + power.MiddleGamma) * 100) / totalPowerSample));
 
-				    totalPowerNoDelta.AddSignal(power.GetTotalPowerWithoutDelta() / 10000f);
+                        totalPowerNoDelta.AddSignal(power.GetTotalPowerWithoutDelta() / 10000f);
+                    }
+				   
 			    }
 
             }
