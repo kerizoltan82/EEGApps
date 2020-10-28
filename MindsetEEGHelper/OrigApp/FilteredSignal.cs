@@ -14,7 +14,7 @@ namespace gnf
 		//using last sample here
 		public string GetStringValueForLog()
 		{
-			if (this.Count == 0)
+			if (this.Count == 0 || Average == null)
 			{
 				return "0,0,0,0,0,0,0,0";
 			}
@@ -25,7 +25,7 @@ namespace gnf
 
 		public string GetDisplayValue()
 		{
-			if (this.Count == 0)
+			if (this.Count == 0 || Average == null)
 			{
 				return "no samples";
 			}
@@ -65,14 +65,14 @@ namespace gnf
 			ret.Theta = (int)this.Average(ep => ep.Theta);
 			return ret;
 		}
-
+        /*
 		public static void ScalePower(EEGPower power)
 		{
 			power.Delta = (int) power.Delta / 10;
 			power.MiddleGamma = (int)power.MiddleGamma * 4;
 			power.Theta = (int)power.Theta / 3;
 		}
-
+        */
 	}
 
 	class FilteredDoubleSignal : FilteredSignal<double>

@@ -229,8 +229,9 @@ namespace gnf
 
 		Timer timer;
 		SignalLogger signalLogger;
+        static int numTotalSignals = 0;
 
-		void StartSignalTimer()
+        void StartSignalTimer()
 		{
 
 			eegSignals = new EEGSignals();
@@ -250,7 +251,9 @@ namespace gnf
 		{
 			eegSignals.Tick();
 			alphaDetector.Tick();
-			signalLogger.LogSignals();
+            signalLogger.TotalNumSignals = numTotalSignals;
+
+            signalLogger.LogSignals();
 
 			// meditation program like pings every x seconds
 			TickForProgram();
@@ -629,7 +632,8 @@ namespace gnf
 
 						if (power.IsValidate)
 						{
-							Instance.eegSignals.AddSignal(2, 0, power);
+                            numTotalSignals++;//roughly one signal every second
+                            Instance.eegSignals.AddSignal(2, 0, power);
 						}
 						break;
 					case MindDataType.CodePoorSignal://

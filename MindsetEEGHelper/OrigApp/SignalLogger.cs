@@ -14,8 +14,10 @@ namespace gnf
 		string currentFileName = "";
 		EEGSignals signals;
 		AlphaDetector detector;
+        public int TotalNumSignals = 0;
 
-		public SignalLogger(Activity refActivity, EEGSignals signals, AlphaDetector detector)
+
+        public SignalLogger(Activity refActivity, EEGSignals signals, AlphaDetector detector)
 		{
 			this.refActivity = refActivity;
 			this.signals = signals; 
@@ -35,8 +37,9 @@ namespace gnf
 
             // TODO log into folder, not "root"
 			string path = Android.OS.Environment.ExternalStorageDirectory.Path;
-			currentFileName = Path.Combine(path, "mindset_eeg_log_" + istr + ".csv");
-			streamWriter = new StreamWriter(currentFileName, true);
+			//currentFileName = Path.Combine(path, "mindset_eeg_log_" + istr + ".csv");
+			currentFileName = Path.Combine(path, "mindset_eeg_log" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm")+ "_" + istr + ".csv");
+            streamWriter = new StreamWriter(currentFileName, true);
 
 			//write header
 			//var timStr = DateTime.Now.ToString("HH:mm:ss");
@@ -60,24 +63,25 @@ namespace gnf
 		{
 			var timStr = new TimeSpan(0, 0, signals.elapsedSeconds).ToString("c");
 
-			var str = timStr + "," +
-				(signals.IsPoorSignal ? "100" : "0") + "," +
-				(signals.IsEvent * 50) + "," +
-				(detector.GetDetectorSignalForLog()) + "," +
-				signals.meditSignals.GetStringValueForLog() + "," +
-				signals.attentSignals.GetStringValueForLog() + "," +
-				signals.powerSignals.GetStringValueForLog() + "," +
-					   signals.percentAlpha.GetStringValueForLog() + "," +
-			           signals.percentBeta.GetStringValueForLog() + "," +
-			           signals.percentDelta.GetStringValueForLog () + "," +
-					   signals.percentGamma.GetStringValueForLog () + "," +
-					   signals.percentTheta.GetStringValueForLog() + "," +
-					   signals.totalPowerNoDelta.GetStringValueForLog();
+            var str = timStr + "," +
+                (signals.IsPoorSignal ? "100" : "0") + "," +
+                (signals.IsEvent * 50) + "," +
+                (detector.GetDetectorSignalForLog()) + "," +
+                signals.meditSignals.GetStringValueForLog() + "," +
+                signals.attentSignals.GetStringValueForLog() + "," +
+                signals.powerSignals.GetStringValueForLog() + "," +
+                       signals.percentAlpha.GetStringValueForLog() + "," +
+                       signals.percentBeta.GetStringValueForLog() + "," +
+                       signals.percentDelta.GetStringValueForLog() + "," +
+                       signals.percentGamma.GetStringValueForLog() + "," +
+                       signals.percentTheta.GetStringValueForLog() + "," +
+                       signals.totalPowerNoDelta.GetStringValueForLog();// + "," +
+                       //TotalNumSignals;
 
-			// replace for excel/openoffice
-			//str = str.Replace (".", ",");
+            // replace for excel/openoffice
+            //str = str.Replace (".", ",");
 
-			try
+            try
 			{
 				streamWriter.WriteLine(str);
 			}

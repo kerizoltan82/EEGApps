@@ -19,8 +19,10 @@ namespace gnf
 		{
 			base.OnCreate(savedInstanceState);
 
-			// Set our view from the "main" layout resource
-			SetContentView(Resource.Layout.Main);
+            var tr = DateTime.Now.ToString("yyyy-MM-dd_HH-mm");
+
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.Main);
 
 			// Get our button from the layout resource,
 			// and attach an event to it
